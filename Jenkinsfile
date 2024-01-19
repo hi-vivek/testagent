@@ -22,6 +22,8 @@ pipeline {
                 steps {
                        sh '''
                          echo "hello dev"
+                         pwd
+                         ls /home/ec2-user
                         '''                   
                 
             }
@@ -34,6 +36,8 @@ pipeline {
                 steps {
                        sh '''
                          echo "hello qa"
+                         pwd
+                         ls /home/ec2-user
                         '''                    
             }
         }
