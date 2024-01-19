@@ -17,7 +17,7 @@ pipeline {
 
             stage('Dev Deployment') {
                 agent {
-                    label 'dev'
+                    label 'dev-agent'
                 }
                 when {
                     expression { GIT_BRANCH ==~ /origin\/(dev|develop)/ }
