@@ -34,7 +34,7 @@ pipeline {
         
             stage('QA Deployment') {
                 when {
-                    expression { env.GIT_BRANCH ==~ /origin\/qa/) }
+                    expression { env.GIT_BRANCH ==~ /origin\/qa/ }
                 }
                 steps {
                        sh '''
