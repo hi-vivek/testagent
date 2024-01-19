@@ -16,12 +16,18 @@ pipeline {
 
 
             stage('Dev Deployment') {
+                agent {
+                    label 'dev-agent'
+                }
                 when {
                     expression { GIT_BRANCH ==~ /origin\/(dev|develop)/ }
                 }
                 steps {
                        sh '''
                          echo "hello dev"
+                         hostname
+                         pwd
+                         ls /home/ubuntu
                         '''                   
                 
             }
@@ -29,11 +35,14 @@ pipeline {
         
             stage('QA Deployment') {
                 when {
-                    expression { env.GIT_BRANCH ==~ /origin\/qa/) }
+                    expression { env.GIT_BRANCH ==~ /origin\/qa/ }
                 }
                 steps {
                        sh '''
                          echo "hello qa"
+                         hostname
+                         pwd
+                         ls /home/ubuntu
                         '''                    
             }
         }
